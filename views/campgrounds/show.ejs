@@ -3,8 +3,12 @@
   <h1>
     <%= campground.title %>
   </h1>
-  <p>
+  <h2>
     <%= campground.location %>
+  </h2>
+  <img src="<%= campground.image %>" alt="">
+  <p>
+    <%= campground.description %>
   </p>
   <a href="/campgrounds">All Campgrounds</a>
   <a href="/campgrounds/<%= campground.id %>/edit">Edit</a>
