@@ -7,9 +7,9 @@
     </a>
   </header>
   <main class="container mt-10 mb-32 px-8 md:mx-auto">
-    <ul class="space-y-4">
+    <ul class="flex flex-col gap-4 md:grid md:grid-cols-3 xl:grid-cols-5">
       <% for( let campground of campgrounds ) { %>
-        <li class="border-b border-b-gray-400">
+        <li class="p-4 border border-gray-400 duration-200 md:text-center md:hover:shadow-md md:hover:scale-105">
           <a href="/campgrounds/<%= campground._id %>"
             class="inline-block pb-2 font-semibold duration-150 hover:text-blue-500 hover:italic">
             <%= campground.title %>
