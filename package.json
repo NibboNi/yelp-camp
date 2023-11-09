@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./input.css -o ./css/styles.css",
+    "watch": "tailwindcss -i ./input.css -o ./css/styles.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +17,8 @@
     "express": "^4.18.2",
     "method-override": "^3.0.0",
     "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
   }
 }
