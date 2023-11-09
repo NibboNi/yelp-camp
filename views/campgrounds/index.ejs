@@ -1,12 +1,19 @@
 <% layout("/layouts/boilerplate") %>
-  <h1>All Campgrounds</h1>
-  <a href="/campgrounds/new">Add Campground</a>
-  <ul>
-    <% for( let campground of campgrounds ) { %>
-      <li>
-        <a href="/campgrounds/<%= campground._id %>">
-          <%= campground.title %>
-        </a>
-      </li>
-      <% } %>
-  </ul>
+  <header class="my-4 flex flex-col md:flex-row justify-center items-center md:items-end gap-4">
+    <h1 class="text-4xl font-semibold">All Campgrounds</h1>
+    <a href="/campgrounds/new"
+      class="px-4 py-2 text-xs text-white font-bold bg-green-400 rounded-xl shadow-md duration-200 hover:scale-95 hover:shadow-sm">
+      Add Campground +
+    </a>
+  </header>
+  <main class="container mt-10 mb-32 px-8 md:mx-auto">
+    <ul class="space-y-4">
+      <% for( let campground of campgrounds ) { %>
+        <li class="border-b border-b-gray-400">
+          <a href="/campgrounds/<%= campground._id %>" class="inline-block pb-2 font-semibold hover:text-blue-500">
+            <%= campground.title %>
+          </a>
+        </li>
+        <% } %>
+    </ul>
+  </main>
