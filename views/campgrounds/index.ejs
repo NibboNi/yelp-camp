@@ -9,9 +9,10 @@
   <main class="container mt-10 mb-32 px-8 md:mx-auto">
     <ul class="flex flex-col gap-4 md:grid md:grid-cols-3 xl:grid-cols-5">
       <% for( let campground of campgrounds ) { %>
-        <li class="p-4 border border-gray-400 duration-200 md:text-center md:hover:shadow-md md:hover:scale-105">
+        <li class="border rounded-md overflow-hidden duration-200 md:text-center md:hover:shadow-lg md:hover:scale-105">
+          <img src="<%= campground.image %>" alt="" class="h-32 w-full object-cover">
           <a href="/campgrounds/<%= campground._id %>"
-            class="inline-block pb-2 font-semibold duration-150 hover:text-blue-500 hover:italic">
+            class="inline-block my-4 px-4 relative font-semibold duration-75 before:w-0 before:h-0.5 before:absolute before:bottom-0 before:left-1/2 before:bg-black before:transition-all before:duration-300 hover:font-bold hover:before:w-full hover:before:left-0 md:px-0">
             <%= campground.title %>
           </a>
         </li>
