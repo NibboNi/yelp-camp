@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cls && nodemon ./app.js",
     "build": "tailwindcss -i ./input.css -o ./css/styles.css",
-    "watch": "tailwindcss -i ./input.css -o ./css/styles.css --watch"
+    "watch": "cls && tailwindcss -i ./input.css -o ./css/styles.css --watch"
   },
   "keywords": [],
   "author": "",
