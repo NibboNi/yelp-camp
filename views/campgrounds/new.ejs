@@ -1,15 +1,22 @@
 <% layout("/layouts/boilerplate") %>
-
-  <form action="/campgrounds" method="post">
-    <div>
-      <label for="title">Name:</label>
-      <input type="text" id="title" name="campground[title]" placeholder="Campground name...">
+  <main class="container mx-auto my-4">
+    <form action="/campgrounds" method="post" class="m-2 flex flex-col border border-gray-400 rounded">
+      <div class="py-4 px-2 border-b border-b-gray-400">
+        <label for="title" class="font-bold">Name:</label>
+        <input type="text" id="title" name="campground[title]" placeholder="Campground name..."
+          class="ml-2 pb-1 border-b border-b-gray-500 italic font-semibold text-gray-500">
+      </div>
+      <div class="py-4 px-2 border-b border-b-gray-400">
+        <label for="location" class="font-bold">Location:</label>
+        <input type="text" id="location" name="campground[location]" placeholder="Campground location..."
+          class="ml-2 pb-1 border-b border-b-gray-500 italic font-semibold text-gray-500">
+      </div>
+      <button class="py-4 text-white font-bold bg-green-500 capitalize hover:bg-green-400">Add campground</button>
+    </form>
+    <div class="my-4 mx-2">
+      <a href="/campgrounds"
+        class="inline-block py-2 w-full text-white bg-orange-500 font-bold rounded uppercase text-center hover:bg-orange-400">
+        cancel
+      </a>
     </div>
-    <div>
-      <label for="location">Location:</label>
-      <input type="text" id="location" name="campground[location]" placeholder="Campground location...">
-    </div>
-    <button>Add campground</button>
-  </form>
-
-  <a href="/campgrounds">cancel</a>
+  </main>
