@@ -3,13 +3,29 @@
     <form action="/campgrounds" method="post" class="m-2 flex flex-col border border-gray-400 rounded">
       <div class="py-4 px-2 border-b border-b-gray-400">
         <label for="title" class="font-bold">Name:</label>
-        <input type="text" id="title" name="campground[title]" placeholder="Campground name..."
+        <input type="text" id="title" name="campground[title]" placeholder="Forest Bungalow"
           class="ml-2 pb-1 border-b border-b-gray-500 italic font-semibold text-gray-500">
       </div>
       <div class="py-4 px-2 border-b border-b-gray-400">
         <label for="location" class="font-bold">Location:</label>
-        <input type="text" id="location" name="campground[location]" placeholder="Campground location..."
+        <input type="text" id="location" name="campground[location]" placeholder="City, State"
           class="ml-2 pb-1 border-b border-b-gray-500 italic font-semibold text-gray-500">
+      </div>
+      <div class="py-4 px-2 border-b border-b-gray-400">
+        <label for="image" class="font-bold">Image URL:</label>
+        <input type="text" id="image" name="campground[image]" placeholder="https://www.my-image.com"
+          class="ml-2 pb-1 border-b border-b-gray-500 italic font-semibold text-gray-500">
+      </div>
+      <div class="py-4 px-2 flex flex-col gap-2 border-b border-b-gray-400">
+        <label for="description" class="font-bold">Description:</label>
+        <textarea type="text" id="description" name="campground[description]"
+          placeholder="A brief description of the campground..."
+          class="pb-1 h-32 border-b border-b-gray-500 italic font-semibold text-gray-500 resize-none"></textarea>
+      </div>
+      <div class="py-4 px-2 border-b border-b-gray-400">
+        <label for="price" class="font-bold">Price: $</label>
+        <input type="number" step="0.01" id="price" name="campground[price]" placeholder="0.00"
+          class="pb-1 border-b border-b-gray-500 italic font-semibold text-gray-500">
       </div>
       <button class="py-4 text-white font-bold bg-green-500 capitalize hover:bg-green-400">Add campground</button>
     </form>
