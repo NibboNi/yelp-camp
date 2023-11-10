@@ -1,14 +1,17 @@
 <% layout("/layouts/boilerplate") %>
 
-  <main>
-    <div class="container mx-auto flex flex-col items-center md:text-white">
+  <main class="container mx-auto flex flex-col items-center md:items-start md:text-white">
+    <div class="w-full">
       <div class="md:w-full md:mt-4 md:flex md:flex-row md:justify-between">
         <header class="p-4 flex flex-col gap-1 text-center md:justify-end md:text-left">
           <h1 class="text-2xl font-semibold md:text-5xl">
             <%= campground.title %>
           </h1>
-          <h2 class="font-semibold md:text-3xl">
+          <h2 class="flex flex-col items-center gap-2 font-semibold md:items-start md:text-3xl">
             <%= campground.location %>
+              <span class="py-1 px-3 bg-black text-white text-xs rounded-full md:px-5 md:text-base">
+                $<%= campground.price %>
+              </span>
           </h2>
         </header>
         <div
@@ -20,13 +23,15 @@
       <p class="my-4 px-4 md:text-xl">
         <%= campground.description %>
       </p>
-      <div class="w-full my-5 px-4 flex justify-between">
+      <div class="w-full my-5 px-4 flex justify-between lg:justify-start lg:gap-4">
         <a href="/campgrounds/<%= campground.id %>/edit"
           class="px-4 py-2 bg-blue-500 text-white font-bold rounded-xl">Edit</a>
         <form action="/campgrounds/<%= campground.id %>?_method=DELETE" method="post">
           <button class="px-4 py-2 bg-red-500 text-white font-bold rounded-xl">Delete campground</button>
         </form>
       </div>
-      <a href="/campgrounds" class="mb-8 font-bold underline">All Campgrounds</a>
+      <div class="flex justify-center">
+        <a href="/campgrounds" class="font-bold underline">All Campgrounds</a>
+      </div>
     </div>
   </main>
