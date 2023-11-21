@@ -5,13 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles.css">
-  <title>BoilerPlate!</title>
+  <title>YelpCamp</title>
 </head>
 
 <body class="min-h-screen flex flex-col">
   <%- include("./../partials/navbar") %>
     <%- body %>
       <%- include("./../partials/footer") %>
+        <script>
+          (function () {
+            "use strict"
+
+            const forms = document.querySelectorAll(".validated-form")
+
+            Array.from(forms)
+              .forEach(function (form) {
+                form.addEventListener("submit", function (event) {
+                  if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                  }
+
+                  form.classList.add("was-validated")
+                }, false)
+              })
+          })()
+        </script>
 </body>
 
 </html>
