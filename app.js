@@ -6,6 +6,8 @@ const methodOverride = require("method-override");
 
 const ejsMate = require("ejs-mate");
 
+const { campgroundSchema } = require("./schemas");
+
 const catchAsync = require("./utils/catchAsync");
 const ExpressError = require("./utils/ExpressError");
 
@@ -13,7 +15,6 @@ const mongoose = require("mongoose");
 
 const db = mongoose.connection;
 const Campground = require("./models/campgroud");
-const { error } = require("console");
 
 mongoose.connect("mongodb://127.0.0.1:27017/yelp-camp");
 
@@ -30,6 +31,17 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "/css")));
+
+const validatesCampground = (req, res, next) => {
+  const { error } = campgroundSchema.validate(req.body);
+
+  if (error) {
+    const msg = error.details.map((error) => error.message).join(",");
+    throw new ExpressError(msg, 400);
+  } else {
+    next();
+  }
+};
 
 app.listen(port, () => {
   console.log(`Serving on port ${port}`);
@@ -49,9 +61,8 @@ app.get(
 
 app.post(
   "/campgrounds",
+  validatesCampground,
   catchAsync(async (req, res) => {
-    if (!req.body.campgroud)
-      throw new ExpressError("Invalid Campground Data", 400);
     const campgroud = new Campground(req.body.campground);
     await campgroud.save();
     res.redirect(`/campgrounds/${campgroud.id}`);
@@ -82,6 +93,7 @@ app.get(
 
 app.put(
   "/campgrounds/:id",
+  validatesCampground,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const campground = await Campground.findByIdAndUpdate(id, {
