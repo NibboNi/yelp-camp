@@ -107,6 +107,7 @@ app.all("*", (req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  const { statusCode = 500, message = "Something Went Wrog :/" } = err;
-  res.status(statusCode).send(message);
+  const { statusCode = 500 } = err;
+  if (!err.message) err.message = "Something Went Wrog :/\nWomp Womp...";
+  res.status(statusCode).render("error", { err });
 });
